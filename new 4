@@ -1,0 +1,12 @@
+{         
+  "Version": "2012-10-17",        
+  "Statement": [           
+    {             
+      "Effect": "Allow", 
+	  "Principal": {               
+	    "AWS": "<span style="font-style: italic;"><iam_user></span>"   
+	},            
+	"Action": "sts:AssumeRole"         
+    }          
+  ]      
+}

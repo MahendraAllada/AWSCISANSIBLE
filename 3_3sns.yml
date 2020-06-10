@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  gather_facts: yes
+  become_method: sudo
+  become: yes
+  tasks:
+  - name: Create alarm SNS topic
+    sns_topic:
+      name: "mahisns"
+      state: present
+      display_name: "SNS topic"
+      subscriptions:
+        - endpoint: "mahi32353@gmail.com"
+          protocol: "email"
+        - endpoint: "+91 7675955514"
+          protocol: "sms"

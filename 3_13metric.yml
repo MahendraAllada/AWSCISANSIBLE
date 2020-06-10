@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: yes
+  become_method: sudo
+  become: yes
+  tasks:
+  - name: 3.13  Ensure a log metric filter and alarm exist for route table changes    
+    command: aws logs put-metric-filter --log-group-name mahi --filter-name 'Routetablefilter' --metric-transformations metricName='Routetablecount',metricNamespace='CloudTrailMetrics',metricValue=1 --filter-pattern '{ ($.eventName = CreateRoute) || ($.eventName = CreateRouteTable) || ($.eventName = ReplaceRoute) || ($.eventName = ReplaceRouteTableAssociation) || ($.eventName = DeleteRouteTable) || ($.eventName = DeleteRoute) || ($.eventName = DisassociateRouteTable) }' 
+    tags:
+      - '3.13'
+      - gpgcheck
+      - one
+      - all
