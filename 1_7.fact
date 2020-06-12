@@ -1,0 +1,12 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+
+RS=$(aws iam get-account-password-policy | grep "RequireSymbols")
+NOW='        "RequireSymbols": true,'
+
+if [ "$NOW" = "$RS" ]
+then
+   echo "{\"1_7\":\"PASSED\"}"
+else
+   echo "{\"1_7\":\"FAILED\"}"
+fi

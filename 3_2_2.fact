@@ -1,0 +1,10 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+IMT=$(  aws logs describe-metric-filters --log-group-name "mahi"  | grep "filterName" )
+NOW='            "filterName": "ConsoleSignInWithoutMfa",'
+if [ "$IMT" = "$NOW" ]
+then
+   echo "{\"3_2_2\":\"PASSED\"}"
+else
+   echo "{\"3_2_2\":\"FAILED\"}"
+fi

@@ -1,0 +1,12 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+
+RUC=$(  aws cloudtrail describe-trails | grep "IsMultiRegionTrail")
+NOW='            "IsMultiRegionTrail": truee,'
+
+if [ "$NOW" = "$RUC" ]
+then
+   echo "{\"2_1_1\":\"PASSED\"}"
+else
+   echo "{\"2_1_1\":\"FAILED\"}"
+fi

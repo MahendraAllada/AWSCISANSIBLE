@@ -1,0 +1,11 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+
+RUC=$(  aws cloudtrail get-event-selectors --trail-name ukmn | grep "IncludeManagementEvents" )
+NOW='            "IncludeManagementEvents": true,'
+if [ "$NOW" = "$RUC" ]
+then
+   echo "{\"3_13_1_3\":\"PASSED\"}"
+else
+   echo "{\"3_13_1_3\":\"FAILED\"}"
+fi

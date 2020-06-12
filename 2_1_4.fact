@@ -1,0 +1,12 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+
+RUC=$( aws cloudtrail get-event-selectors --trail-name pad | grep "ReadWriteType" )
+NOW='            "ReadWriteType": "All",'
+
+if [ "$NOW" = "$RUC" ]
+then
+   echo "{\"2_1_4\":\"PASSED\"}"
+else
+   echo "{\"2_1_4\":\"FAILED\"}"
+fi

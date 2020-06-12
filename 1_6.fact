@@ -1,0 +1,12 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+
+RLC=$(aws iam get-account-password-policy | grep "RequireLowercaseCharacters")
+NOW='        "RequireLowercaseCharacters": true,'
+
+if [ "$NOW" = "$RLC" ]
+then
+   echo "{\"1_6\":\"PASSED\"}"
+else
+   echo "{\"1_6\":\"FAILED\"}"
+fi

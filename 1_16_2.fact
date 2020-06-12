@@ -1,0 +1,7 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+if [ "$( aws iam list-user-policies --user-name  mahi-user | wc -l)" -eq 0 ]; then
+   echo "{\"1_16_2\":\"PASSED\"}"
+else
+   echo "{\"1_16_2\":\"FAILED\"}"
+fi

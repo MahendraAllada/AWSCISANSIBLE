@@ -1,0 +1,12 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+
+RUC=$( aws cloudtrail get-trail-status --name pad | grep "IsLogging" )
+NOW='    "IsLogging": true,'
+
+if [ "$NOW" = "$RUC" ]
+then
+   echo "{\"2_1_2\":\"PASSED\"}"
+else
+   echo "{\"2_1_2\":\"FAILED\"}"
+fi

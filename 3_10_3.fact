@@ -1,0 +1,12 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+
+RUC=$( aws cloudwatch describe-alarms --query 'MetricAlarms[?MetricName== `SecurityGroupEventCount`]'  | grep "AlarmName")
+NOW='        "AlarmName": "Securityalarm",'
+
+if [ "$NOW" = "$RUC" ]
+then
+   echo "{\"3_10_3\":\"PASSED\"}"
+else
+   echo "{\"3_10_3\":\"FAILED\"}"
+fi

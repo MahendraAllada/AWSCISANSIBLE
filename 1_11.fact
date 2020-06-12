@@ -1,0 +1,12 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+
+EP=$(aws iam get-account-password-policy | grep "ExpirePasswords")
+NOW='        "ExpirePasswords": true,'
+
+if [ "$NOW" = "$EP" ]
+then
+   echo "{\"1_11\":\"PASSED\"}"
+else
+   echo "{\"1_11\":\"FAILED\"}"
+fi

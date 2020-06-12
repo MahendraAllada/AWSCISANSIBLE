@@ -1,0 +1,12 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+
+DC=$( aws cloudtrail describe-trails | grep "LogFileValidationEnabled")
+NOW='        "LogFileValidationEnabled": true'
+
+if [ "$NOW" = "$DC" ]
+then
+   echo "{\"2_2\":\"PASSED\"}"
+else
+   echo "{\"2_2\":\"FAILED\"}"
+fi

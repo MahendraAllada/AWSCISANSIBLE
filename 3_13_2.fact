@@ -1,0 +1,10 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+IMT=$(  aws logs describe-metric-filters --log-group-name "mahi"  | grep "filterName" )
+NOW='            "filterName": "Routetablefilter",'
+if [ "$IMT" = "$NOW" ]
+then
+   echo "{\"3_13_2\":\"PASSED\"}"
+else
+   echo "{\"3_13_2\":\"FAILED\"}"
+fi

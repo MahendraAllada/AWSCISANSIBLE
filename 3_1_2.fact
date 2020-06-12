@@ -1,0 +1,10 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+IMT=$(  aws logs describe-metric-filters --log-group-name "mahi"  | grep "filterName" )
+NOW='            "filterName": "APICALLS",'
+if [ "$IMT" = "$NOW" ]
+then
+   echo "{\"3_1_2\":\"PASSED\"}"
+else
+   echo "{\"3_1_2\":\"FAILED\"}"
+fi

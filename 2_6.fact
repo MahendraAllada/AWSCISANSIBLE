@@ -1,0 +1,12 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+
+RUC=$( aws s3api get-bucket-logging --bucket harsha3 | grep "TargetBucket" )
+NOW='        "TargetBucket": "harsha3",'
+
+if [ "$NOW" = "$RUC" ]
+then
+   echo "{\"2_6\":\"PASSED\"}"
+else
+   echo "{\"2_6\":\"FAILED\"}"
+fi

@@ -1,0 +1,12 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+
+RUC=$(  aws cloudwatch describe-alarms --query 'MetricAlarms[?MetricName== `CloudTrailEventCount`]'  | grep "AlarmName")
+NOW='        "AlarmName": "CTCalarm",'
+
+if [ "$NOW" = "$RUC" ]
+then
+   echo "{\"3_5_3\":\"PASSED\"}"
+else
+   echo "{\"3_5_3\":\"FAILED\"}"
+fi

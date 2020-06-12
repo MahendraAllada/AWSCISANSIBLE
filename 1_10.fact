@@ -1,0 +1,12 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+
+PRP=$(aws iam get-account-password-policy | grep "PasswordReusePrevention")
+NOW='        "PasswordReusePrevention": 24,'
+
+if [ "$NOW" = "$PRP" ]
+then
+   echo "{\"1_10\":\"PASSED\"}"
+else
+   echo "{\"1_10\":\"FAILED\"}"
+fi

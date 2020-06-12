@@ -1,0 +1,11 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+
+AE=$( aws iam get-account-summary | grep "AccountMFAEnabled" )
+NOW='        "AccountMFAEnabled": 0"'
+if [ "$NOW" = "$AE" ]
+then
+ echo "{\"1_13\":\"PASSED\"}"
+else
+ echo "{\"1_13\":\"FAILED\"}"
+fi

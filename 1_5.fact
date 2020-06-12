@@ -1,0 +1,10 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+RUC=$(aws iam get-account-password-policy | grep "RequireUppercaseCharacters")
+NOW='        "RequireUppercaseCharacters": true,'
+if [ "$NOW" = "$RUC" ]
+then
+   echo "{\"1_5\":\"PASSED\"}"
+else
+   echo "{\"1_5\":\"FAILED\"}"
+fi

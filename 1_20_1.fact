@@ -1,0 +1,7 @@
+#!/bin/sh
+# ** AUTO GENERATED **
+if [ "$( aws iam list-policies --query "Policies[?PolicyName == 'AWSSupportAccess']" | wc -l)" -eq 0 ]; then
+   echo "{\"1_20_1\":\"PASSED\"}"
+else
+   echo "{\"1_20_1\":\"FAILED\"}"
+fi
