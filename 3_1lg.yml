@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: yes
+  become_method: sudo
+  become: yes
+  tasks:
+  - cloudwatchlogs_log_group:
+       state: present
+       log_group_name: mahi

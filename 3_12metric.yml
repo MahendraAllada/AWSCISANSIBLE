@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: yes
+  become_method: sudo
+  become: yes
+  tasks:
+  - name: 3.12   Ensure a log metric filter and alarm exist for changes to Network Access Control Lists 
+    command: aws logs put-metric-filter --log-group-name mahi --filter-name 'GatewayChanges' --metric-transformations metricName='GatewayEventCount',metricNamespace='CloudTrailMetrics',metricValue=1 --filter-pattern '{ ($.eventName = CreateCustomerGateway) || ($.eventName = DeleteCustomerGateway) || ($.eventName = AttachInternetGateway) || ($.eventName = CreateInternetGateway) || ($.eventName = DeleteInternetGateway) || ($.eventName = DetachInternetGateway) }' 
+    tags:
+      - '3.12'
+      - gpgcheck
+      - one
+      - all

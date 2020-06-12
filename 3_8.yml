@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  gather_facts: yes
+  become_method: sudo
+  become: yes
+  tasks:
+  - name:   Ensure a log metric filter and alarm exist for S3 bucket policy changes 
+    ec2_metric_alarm:
+      state: present
+      region: us-east-1
+      name: "S3BPalarm"
+      metric: "S3BucketActivityEventCount"
+      namespace: "CloudTrailMetrics"
+      statistic: "Minimum"
+      comparison: ">"
+      threshold: 300
+      period: 60
+      evaluation_periods: 2
+      unit: "Count"
+      alarm_actions: ["arn:aws:cloudwatch:us-east-1:929815623526:alarm:S3BPalarm"]

@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: yes
+  become_method: sudo
+  become: yes
+  tasks:
+  - name: 2.8 Ensure rotation for customer created CMKs is enabled
+    command: aws kms enable-key-rotation --key-id  dda7195c-7d6f-4b31-9ec0-8cf82497a66b
+    tags:
+      - '2.8'
+      - gpgcheck
+      - one
+      - all

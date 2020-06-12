@@ -1,0 +1,12 @@
+- hosts: localhost
+  gather_facts: yes
+  become_method: sudo
+  become: yes
+  tasks:
+  - name: 3.14  Ensure a log metric filter and alarm exist for VPC changes
+    command: aws logs put-metric-filter --log-group-name mahi --filter-name 'VpcChanges' --metric-transformations metricName='VpcEventCoun',metricNamespace='CloudTrailMetrics',metricValue=1 --filter-pattern '{ ($.eventName = CreateVpc) || ($.eventName = DeleteVpc) || ($.eventName = ModifyVpcAttribute) || ($.eventName = AcceptVpcPeeringConnection) || ($.eventName = CreateVpcPeeringConnection) || ($.eventName = DeleteVpcPeeringConnection) || ($.eventName = RejectVpcPeeringConnection) || ($.eventName = AttachClassicLinkVpc) || ($.eventName = DetachClassicLinkVpc) || ($.eventName = DisableVpcClassicLink) || ($.eventName = EnableVpcClassicLink) }'  
+    tags:
+      - '3.14'
+      - gpgcheck
+      - one
+      - all

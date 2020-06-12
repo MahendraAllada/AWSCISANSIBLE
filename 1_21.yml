@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: yes
+  become_method: sudo
+  become: yes
+  tasks:
+  - name: 1.21  Do not setup access keys during initial user setup for all IAM users that have a console password      
+    command:   aws iam delete-access-key --access-key-id AKIAIXBR5BTMIPE2AQIA
+    tags:
+      - '1.21'
+      - gpgcheck
+      - one
+      - all
